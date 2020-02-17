@@ -16,23 +16,25 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.algaworks.socialbooks.domain.Livro;
 import com.algaworks.socialbooks.repository.LivrosRepository;
+import com.algaworks.socialbooks.services.LivrosServices;
+import com.algaworks.socialbooks.services.exceptions.LivroNaoEncontradoException;
 
 @RestController
 @RequestMapping("/livros")
 public class LivroResource {
 
 	@Autowired
-	private LivrosRepository LivrosRepository;
+	private LivrosServices livrosServices;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Livro>> listar() {
-		return ResponseEntity.status(HttpStatus.OK).body(LivrosRepository.findAll());
+		return ResponseEntity.status(HttpStatus.OK).body(livrosServices.listar());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> salvar(@RequestBody Livro livro) {
-		livro = LivrosRepository.save(livro);
-
+		livro = livrosServices.salvar(livro);
+		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(livro.getId()).toUri();
 
 		return ResponseEntity.created(uri).build();
@@ -40,9 +42,10 @@ public class LivroResource {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> buscar(@PathVariable("id") Long id) {
-		Livro livro = LivrosRepository.findOne(id);
-
-		if (livro == null) {
+		Livro livro = null;
+		try {
+			livro = livrosServices.buscar(id);			
+		} catch (LivroNaoEncontradoException e) {
 			return ResponseEntity.notFound().build();
 		}
 
@@ -53,7 +56,7 @@ public class LivroResource {
 	public ResponseEntity<Void> deletar(@PathVariable("id") Long id) {
 
 		try {
-			LivrosRepository.delete(id);
+			livrosServices.deletar(id);
 		} catch (EmptyResultDataAccessException e) {
 			return ResponseEntity.notFound().build();
 		}
@@ -64,7 +67,11 @@ public class LivroResource {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> atualizar(@RequestBody Livro livro, @PathVariable("id") Long id) {
 		livro.setId(id);
-		LivrosRepository.save(livro);
+		try {
+			livrosServices.atualizar(livro);			
+		} catch (LivroNaoEncontradoException e) {
+			return ResponseEntity.notFound().build();
+		}
 
 		return ResponseEntity.noContent().build();
 	}

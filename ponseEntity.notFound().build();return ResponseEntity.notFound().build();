@@ -1,0 +1,65 @@
+[33mcommit a0e912a409f44ae8083c60e1406d3001a959bbb5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 21:37:16 2020 -0300
+
+    Finalizando o tratamento das respostas
+
+[33mcommit 874f58d1086fef671d9a5cffa050b593b7e5517b[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 21:25:32 2020 -0300
+
+    Tratamento correto das respostas HTTP 404 e 201
+
+[33mcommit 1cef0bde523f5f20704df8d4ee6e8a7c514a7d03[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 20:17:27 2020 -0300
+
+    PUT para atualizar o recurso Livro
+
+[33mcommit 7ceba76a6661f4ae62e98bfadc23e22cac9cc50d[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 20:09:36 2020 -0300
+
+    Deletando o recurso Livro com o DELETE
+
+[33mcommit 00fb0f566b1cc71612a00d6a2e33d22d700103ee[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 18:51:58 2020 -0300
+
+    Buscando um livro com o uso da anotação @PathVariable
+
+[33mcommit 09db07e499bce0556bdfa27d9261a054a8c9e407[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 18:32:57 2020 -0300
+
+    Salvando o recurso Livro a partir de um POST
+
+[33mcommit dedc44880d5c073d63c0cf5f573b3b1d22c74187[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 18:11:30 2020 -0300
+
+    Interagindo com o banco de dados
+
+[33mcommit 40f3ecdcbf2d307a516c0d47219a301b27a0a442[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 17:38:41 2020 -0300
+
+    Utilizando a anotacao @JsonInclude
+
+[33mcommit 565bd40539d2039d5cfe4dfb5e740beb7f70bb7f[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 17:33:35 2020 -0300
+
+    Criando uma representacao ára o recurso Livro
+
+[33mcommit f3ba2431aa38c1f5e2539994716b734ac6fac59e[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 17:23:34 2020 -0300
+
+    Modelando nosso primeiro recurso
+
+[33mcommit 999778e159d002fd35edd6f99b542de7052e0f38[m
+Author: Mario <juniorm3@msn.com>
+Date:   Sun Feb 16 17:17:53 2020 -0300
+
+    Criando o Projeto
