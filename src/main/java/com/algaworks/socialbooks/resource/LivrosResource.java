@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.algaworks.socialbooks.domain.Comentario;
 import com.algaworks.socialbooks.domain.Livro;
 import com.algaworks.socialbooks.services.LivrosServices;
 
 @RestController
 @RequestMapping("/livros")
-public class LivroResource {
+public class LivrosResource {
 
 	@Autowired
 	private LivrosServices livrosServices;
@@ -54,5 +55,16 @@ public class LivroResource {
 		livro.setId(id);
 		livrosServices.atualizar(livro);
 		return ResponseEntity.noContent().build();
+	}
+
+	@RequestMapping(value = "/{id}/comentarios", method = RequestMethod.POST)
+	public ResponseEntity<Void> adicionarComentario(@PathVariable("id") Long livroId,
+			@RequestBody Comentario comentario) {
+
+		livrosServices.salvarComentario(livroId, comentario);
+
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+
+		return ResponseEntity.created(uri).build();
 	}
 }
