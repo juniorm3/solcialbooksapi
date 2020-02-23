@@ -65,5 +65,11 @@ public class LivrosServices {
 		
 		return comentariosRepository.save(comentario);
 	}
+	
+	public List<Comentario> listarComentarios(Long linvroId){
+		Livro livro = buscar(linvroId);
+		
+		return livro.getComnetarios();
+	}
 
 }
