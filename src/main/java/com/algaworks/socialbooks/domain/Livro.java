@@ -15,7 +15,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -31,8 +30,11 @@ public class Livro {
 	private String nome;
 
 	@JsonInclude(Include.NON_NULL)
+<<<<<<< HEAD
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	@NotNull(message = "Campo publicação é deve preenchimento obrigatório")
+=======
+>>>>>>> parent of 8a6feb9... Testando nossos recuros e formatadndo nossas representações JSON
 	private Date publicado;
 
 	@JsonInclude(Include.NON_NULL)
@@ -44,7 +46,7 @@ public class Livro {
 	@Size(max = 1500, message = "O resumo não pode conter mais de 1500 caracteres")
 	private String resumo;
 
-	@JsonInclude(Include.NON_EMPTY)
+	@JsonInclude(Include.NON_NULL)
 	@OneToMany(mappedBy = "livro")
 	private List<Comentario> comnetarios;
 

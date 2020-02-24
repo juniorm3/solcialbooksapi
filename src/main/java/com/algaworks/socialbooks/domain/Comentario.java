@@ -13,11 +13,13 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+=======
+>>>>>>> parent of 8a6feb9... Testando nossos recuros e formatadndo nossas representações JSON
 
 @Entity
 public class Comentario {
@@ -31,11 +33,8 @@ public class Comentario {
 	@JsonProperty("comentario")
 	private String texto;
 
-	@JsonInclude(Include.NON_NULL)
 	private String usuario;
 
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	@JsonInclude(Include.NON_NULL)
 	private Date data;
 
 	@ManyToOne(fetch = FetchType.LAZY)

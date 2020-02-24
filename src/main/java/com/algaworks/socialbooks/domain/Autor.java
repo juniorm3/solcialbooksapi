@@ -12,10 +12,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 public class Autor {
@@ -27,6 +24,7 @@ public class Autor {
 	@NotEmpty(message = "O campo nome não pode ser vazio")
 	private String nome;
 
+<<<<<<< HEAD
 	@JsonInclude(Include.NON_NULL)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	@NotNull(message = "Campo nascimento é deve preenchimento obrigatório!")
@@ -34,6 +32,10 @@ public class Autor {
 
 	@JsonInclude(Include.NON_NULL)
 	@NotNull(message = "Campo nacionalidade é deve preenchimento obrigatório!")
+=======
+	private Date nascimento;
+
+>>>>>>> parent of 8a6feb9... Testando nossos recuros e formatadndo nossas representações JSON
 	private String nacionalidade;
 
 	@OneToMany(mappedBy = "autor")
