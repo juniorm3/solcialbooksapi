@@ -69,7 +69,7 @@ public class LivrosServices {
 	public List<Comentario> listarComentarios(Long linvroId){
 		Livro livro = buscar(linvroId);
 		
-		return livro.getComnetarios();
+		return livro.getComentarios();
 	}
 
 }

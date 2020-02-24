@@ -16,6 +16,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -46,7 +47,7 @@ public class Livro {
 
 	@JsonInclude(Include.NON_NULL)
 	@OneToMany(mappedBy = "livro")
-	private List<Comentario> comnetarios;
+	private List<Comentario> comentarios;
 
 	@ManyToOne
 	@JoinColumn(name = "AUTOR_ID")
@@ -101,12 +102,12 @@ public class Livro {
 		this.resumo = resumo;
 	}
 
-	public List<Comentario> getComnetarios() {
-		return comnetarios;
+	public List<Comentario> getComentarios() {
+		return comentarios;
 	}
 
-	public void setComnetarios(List<Comentario> comnetarios) {
-		this.comnetarios = comnetarios;
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 
 	public Autor getAutor() {
